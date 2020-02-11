@@ -61,7 +61,7 @@
           <div class="card">
             <div class="card-header">
               <h4>Daftar Pegawai</h4>
-              <a href="" class="btn btn-info px-5 pull-right">Tambah</a>
+              <a href="{{ url("pegawai/create") }}" class="btn btn-info px-5 pull-right">Tambah</a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -70,6 +70,8 @@
                       <tr>
                         <th class="text-center"> # </th>
                         <th>Nama</th>
+                        <th>NIP</th>
+                        <th>status</th>
                         <th>Foto</th>
                         <th>Desa</th>
                         <th>Kecamatan</th>
@@ -79,9 +81,20 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      @foreach ($users as $item)
+                        <tr>
                           <td> 1 </td>
-                          <td>Joni</td>
+                          <td> {{ $item->name }}</td>
+                          <td> {{ $item->nip }}</td>
+                          <td> 
+                            @if ($item->role == 0)
+                                Admin
+                            @elseif ($item->role == 1)
+                                Kepala
+                            @else
+                                Pegawai
+                            @endif
+                          </td>
                           <td>
                               <img alt="image" src="{{ asset("assets/img/avatar/avatar-5.png")}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
                           </td>
@@ -90,28 +103,16 @@
                           <td>5 </td>
                           <td>1 </td>
                           <td>
-                              <a href="{{ url("/pegawai/show") }}" class="btn btn-secondary">Detail</a>
-                              <a href="#" class="btn btn-primary">Edit</a>
-                              <a href="#" class="btn btn-danger">Hapus</a>
-                          </td>
-                      </tr>
-  
-                      <tr>
-                          <td> 2 </td>
-                          <td>Jono</td>
-                          <td>
-                            <img alt="image" src="{{ asset("assets/img/avatar/avatar-5.png")}}" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
-                          </td>
-                          <td>Ujung batu</td>
-                          <td>Ujung batu</td>
-                          <td>6</td>
-                          <td>0</td>
-                          <td>
-                              <a href="{{ url("/pegawai/show") }}" class="btn btn-secondary">Detail</a>
-                              <a href="#" class="btn btn-primary">Edit</a>
-                              <a href="#" class="btn btn-danger">Hapus</a>
+                              <a href="{{ url("/pegawai/show") }}" class="btn btn-secondary btn-sm">Detail</a>
+                              <a href="{{ url("/pegawai/$item->id/edit") }}" class="btn btn-primary btn-sm">Edit</a>
+                              <form action="{{ url("pegawai/$item->id") }}" method="post" class="d-inline">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger btn-sm"> Hapus </button>
+                              </form>
                           </td>
                         </tr>
+                      @endforeach
                     </tbody>
                   </table>
               </div>

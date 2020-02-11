@@ -18,12 +18,13 @@ class CreatePlacesTable extends Migration
             $table->string('image');
             $table->string('latitude');
             $table->string('longtitude');
-            $table->string('longtitude');
             $table->dateTime('time');
-            $table->unsignedInteger('user_id');
             $table->string('desa');
             $table->string('kecamatan');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references("id")->on("users");
         });
     }
 

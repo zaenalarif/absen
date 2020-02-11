@@ -23,6 +23,7 @@
                 <h4>Data Pegawai</h4>
             </div>
             <div class="card-body">
+                <form method="POST" action="{{ url("pegawai/$user->id") }}">
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="nama">Nama</label>
@@ -58,10 +59,14 @@
                             </select>
                         </div>                    
                     </div>
-                    
+                    @csrf
+                    @method("PUT")
                     <div class="form-group">
-                    <a href="{{ url("pegawai/$user->id/edit") }}" class="btn btn-primary btn-lg btn-block">Edit</a>
-                </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Edit
+                    </button>
+                    </div>
+                </form>
             </div>
           </div>
         </div>

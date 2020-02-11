@@ -23,14 +23,15 @@
                 <h4>Data Pegawai</h4>
             </div>
             <div class="card-body">
+                <form method="POST" action="{{ url("pegawai/create") }}">
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="nama">Nama</label>
-                            <input id="nama" type="text" class="form-control" name="nama" value="{{ $user->name }}">
+                            <input id="nama" type="text" class="form-control" name="nama">
                         </div>
                         <div class="form-group col-6">
                             <label for="nip">NIP</label>
-                            <input id="nip" type="text" class="form-control" name="nip" value="{{ $user->nip }}">
+                            <input id="nip" type="text" class="form-control" name="nip">
                         </div>
                     </div>
 
@@ -52,16 +53,19 @@
                         <div class="form-group col-6">
                             <label>Status</label>
                             <select class="form-control">
-                                <option {{ $user->role == 0 ? "selected" : ""}}>Admin</option>
-                                <option {{ $user->role == 1 ? "selected" : ""}}>Kepala</option>
-                                <option {{ $user->role == 2 ? "selected" : ""}}>Pegawai</option>
+                                <option>Admin</option>
+                                <option>Kepala</option>
+                                <option>Pegawai</option>
                             </select>
                         </div>                    
                     </div>
-                    
+                    @csrf
                     <div class="form-group">
-                    <a href="{{ url("pegawai/$user->id/edit") }}" class="btn btn-primary btn-lg btn-block">Edit</a>
-                </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Buat
+                    </button>
+                    </div>
+                </form>
             </div>
           </div>
         </div>

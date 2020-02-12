@@ -23,6 +23,9 @@ Route::get('/pegawai/{id}/edit',    "PegawaiController@edit");
 Route::put('/pegawai/{id}',         "PegawaiController@update");
 Route::delete('/pegawai/{id}',      "PegawaiController@destroy");
 
+Route::get('/kehadiran/hari-ini',   "KehadiranController@hariIni");
+Route::get('/kehadiran',            "KehadiranController@index");
+
 Route::get('/pegawai/riwayat',   function () { return view('pegawai.riwayat'); });
 Route::get('/pegawai/show',   function () { return view('pegawai.show'); });
 // Route::get('/', function () { return view('welcome'); });

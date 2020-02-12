@@ -28,7 +28,7 @@
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <img alt="image" src="{{ asset("assets/img/avatar/avatar-1.png")}}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-divider"></div>
@@ -56,15 +56,14 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Pegawai</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url("/pegawai") }}">Daftar Pegawai</a></li>
-                  <li><a class="nav-link" href="{{ url("/pegawai/riwayat") }}">Riwayat Pekerjaan</a></li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kehadiran</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ url("/pegawai") }}">Hari ini</a></li>
-                  <li><a class="nav-link" href="{{ url("/pegawai/riwayat") }}">Semua</a></li>
+                  <li><a class="nav-link" href="{{ url("/kehadiran/hari-ini") }}">Hari ini</a></li>
+                  <li><a class="nav-link" href="{{ url("/kehadiran") }}">Semua</a></li>
                 </ul>
               </li>
 

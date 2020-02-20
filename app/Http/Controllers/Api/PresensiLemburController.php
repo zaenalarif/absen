@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
-use App\Place;
-use App\Jadwal;
-use DateTime;
 
-class PresensiController extends Controller
+class PresensiLemburController extends Controller
 {
     public function store(Request $request)
     {
-        $jam_mulai  = Jadwal::where("nama_lain", date("l"))->pluck("jam_mulai")->first();
-        $jam_selesai= Jadwal::where("nama_lain", date("l"))->pluck("jam_selesai")->first();
+        /**
+         * masih bug di hari libur
+         */
+        $lembur_mulai  = Jadwal::where("nama_lain", date("l"))->pluck("lembur_mulai")->first();
+        $lembur_selesai= Jadwal::where("nama_lain", date("l"))->pluck("lembur_selesai")->first();
         
         $current_time   = date("H:i:s");
         $sunrise        = $jam_mulai;
@@ -31,7 +30,7 @@ class PresensiController extends Controller
              */
             $place = Place::where("user_id", Auth::user()->id)->whereDay([
                 ["time", date("d")],
-                ["status", 0]
+                ["status", 1]
             ])->first();
             if(!empty($place)) {
                 return response()->json([
@@ -45,7 +44,7 @@ class PresensiController extends Controller
                     "time"      => date("Y-m-d H:i:s"),
                     "desa"      => $request->desa,
                     "kecamatan" => $request->kecamatan,
-                    "status"    => 0,
+                    "status" => 1,
                     "user_id"   => Auth::user()->id
                 ]);
     

@@ -21,6 +21,7 @@ class CreatePlacesTable extends Migration
             $table->dateTime('time');
             $table->string('desa');
             $table->string('kecamatan');
+            $table->tinyInteger('status')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

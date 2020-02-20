@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <title>Login</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,10 +22,10 @@
             <img src="{{ asset("assets/img/stisla-fill.svg")}}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
             <form method="POST" action="{{ url("/login") }}" class="needs-validation" novalidate="">
               <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="text" class="form-control" name="nip" tabindex="1" autocomplete="off" required autofocus>
+                <label for="nip">NIP</label>
+                <input id="nip" type="text" class="form-control" name="nip" tabindex="1" autocomplete="off" required>
                 <div class="invalid-feedback">
-                  Please fill in your email
+                  NIP
                 </div>
               </div>
 
@@ -39,17 +39,7 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                  <label class="custom-control-label" for="remember-me">Remember Me</label>
-                </div>
-              </div>
-
               <div class="form-group text-right">
-                <a href="auth-forgot-password.html" class="float-left mt-3">
-                  Forgot Password?
-                </a>
                 @csrf
                 <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
                   Login
@@ -59,7 +49,7 @@
             </form>
 
             <div class="text-center mt-5 text-small">
-              Copyright &copy; Your Company. Made with 💙 by Stisla
+              Copyright &copy; 💙 by Stisla
               <div class="mt-2">
                 <a href="#">Privacy Policy</a>
                 <div class="bullet"></div>

@@ -18,12 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('nip')->unique();
             $table->string('password');
-            $table->integer('role')->default(2);
-            $table->string('jabatan')->nullable();
+            $table->integer('role');
             /**
-             * admin   0  
-             * kepala  1
-             * pegawai 2
+             * admin   3  
+             * kepala  2
+             * pegawai 1
              */
             $table->rememberToken();
             $table->timestamps();

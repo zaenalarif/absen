@@ -23,7 +23,7 @@
                 <h4>Data Pegawai</h4>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ url("pegawai/$user->id") }}">
+                <form method="POST" action="{{ url("/pegawai/$user->id") }}">
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="nama">Nama</label>
@@ -40,25 +40,8 @@
                             <label for="password" class="d-block">Password</label>
                             <input id="password" type="password" class="form-control" name="password">
                         </div>
-                        <div class="form-group col-6">
-                            <label for="password2" class="d-block">Password Confirmation</label>
-                            <input id="password2" type="password" class="form-control" name="password-confirm">
-                        </div>
                     </div>
 
-                    <div class="form-divider">                    
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label>Status</label>
-                            <select class="form-control">
-                                <option {{ $user->role == 0 ? "selected" : ""}}>Admin</option>
-                                <option {{ $user->role == 1 ? "selected" : ""}}>Kepala</option>
-                                <option {{ $user->role == 2 ? "selected" : ""}}>Pegawai</option>
-                            </select>
-                        </div>                    
-                    </div>
                     @csrf
                     @method("PUT")
                     <div class="form-group">

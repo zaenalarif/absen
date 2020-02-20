@@ -26,41 +26,16 @@
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="nama">Nama</label>
-                            <input id="nama" type="text" class="form-control" name="nama" value="{{ $user->name }}">
+                            <input id="nama" disabled type="text" class="form-control" name="nama" value="{{ $user->name }}">
                         </div>
                         <div class="form-group col-6">
                             <label for="nip">NIP</label>
-                            <input id="nip" type="text" class="form-control" name="nip" value="{{ $user->nip }}">
+                            <input id="nip" disabled type="text" class="form-control" name="nip" value="{{ $user->nip }}">
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label for="password" class="d-block">Password</label>
-                            <input id="password" type="password" class="form-control" name="password">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="password2" class="d-block">Password Confirmation</label>
-                            <input id="password2" type="password" class="form-control" name="password-confirm">
-                        </div>
-                    </div>
-
-                    <div class="form-divider">                    
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label>Status</label>
-                            <select class="form-control">
-                                <option {{ $user->role == 0 ? "selected" : ""}}>Admin</option>
-                                <option {{ $user->role == 1 ? "selected" : ""}}>Kepala</option>
-                                <option {{ $user->role == 2 ? "selected" : ""}}>Pegawai</option>
-                            </select>
-                        </div>                    
                     </div>
                     
                     <div class="form-group">
-                    <a href="{{ url("pegawai/$user->id/edit") }}" class="btn btn-primary btn-lg btn-block">Edit</a>
+                    <a href="{{ url("pegawai/$user->id/edit") }}" class="btn btn-lg btn-outline-secondary">Edit</a>
                 </div>
             </div>
           </div>

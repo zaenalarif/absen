@@ -29,12 +29,14 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="{{ asset("assets/img/avatar/avatar-1.png")}}" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
+              <form action="{{ url("logout") }}" method="post" style="display: inline" class="">
+                @csrf
+                <button type="submit" class="dropdown-item has-icon text-danger">Logout</button>
+              </form>
+
             </div>
           </li>
         </ul>
@@ -49,7 +51,7 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
-              <li><a class="nav-link" href="{{ url("/") }}"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
+              <li><a class="nav-link" href="{{ url("/") }}"><i class="far fa-square"></i> <span>Home</span></a></li>
 
               <li class="menu-header">Menu</li>
               <li class="nav-item dropdown">
@@ -64,6 +66,13 @@
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url("/kehadiran/hari-ini") }}">Hari ini</a></li>
                   <li><a class="nav-link" href="{{ url("/kehadiran") }}">Semua</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clock"></i> <span>Jadwal</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="{{ url("/jadwal") }}">Jadwal</a></li>
                 </ul>
               </li>
 

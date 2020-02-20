@@ -15,8 +15,13 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('asasid');
-            // $table->bigIncrements('id');
+            $table->string('nama_hari');
+            $table->string('nama_lain');
+            $table->time('jam_mulai', 0)->nullable();
+            $table->time('jam_selesai', 0)->nullable();
+            $table->time('lembur_mulai', 0)->nullable();
+            $table->time('lembur_selesai', 0)->nullable();
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

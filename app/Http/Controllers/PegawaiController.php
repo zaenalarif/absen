@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class PegawaiController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+            $users = User::where("role", 1)->get();
         return view("pegawai.index", compact("users"));
     }
 
@@ -24,9 +25,8 @@ class PegawaiController extends Controller
         $user = User::create([
             "name"          => $request->nama,
             "nip"           => $request->nip,
-            "password"      => $request->password,
-            "role"          => 0,
-            "jabatan"       => "MASIH MANUAL",
+            "password"      => Hash::make($request->password),
+            "role"          => 1,
         ]);
 
         return redirect("/pegawai")->with("msg", "Akun Pegawai Berhasil dibuat");
@@ -55,10 +55,10 @@ class PegawaiController extends Controller
         $user->update([
             "name"          => $request->nama,
             "nip"           => $request->nip,
-            "password"      => "okelah",
+            "password"      => Hash::make($request->password),
         ]);
 
-        return redirect("/pegawai/".$id)->with("msg", $request->nama . " sudah terupdate");
+        return redirect("/pegawai")->with("msg", $request->nama . " sudah terupdate");
     }
 
     public function destroy($id)

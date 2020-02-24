@@ -26,20 +26,74 @@
                 <form method="POST" action="{{ url("pegawai/create") }}">
                     <div class="row">
                         <div class="form-group col-6">
-                            <label for="nama">Nama</label>
-                            <input id="nama" type="text" class="form-control" name="nama">
+                            <label for="nama">No THL berdasarkan TMT</label>
+                            <input id="nama" type="text" class="form-control" name="no_thl">
                         </div>
                         <div class="form-group col-6">
-                            <label for="nip">NIP</label>
-                            <input id="nip" type="text" class="form-control" name="nip">
+                            <label for="nip">TMT pengangkatan Pertama</label>
+                            <input id="nip" type="date" class="form-control" name="tmt_pengangkatan_pertama">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-6">
-                            <label for="password" class="d-block">Password</label>
-                            <input id="password" type="password" class="form-control" name="password">
-                        </div>
+                      <div class="form-group col-6">
+                          <label>Nama</label>
+                          <input type="text" class="form-control" name="name">
+                      </div>
+                      <div class="form-group col-6">
+                          <label>Tempat lahir</label>
+                          <input type="text" class="form-control" name="tempat_lahir">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-6">
+                          <label>tanggal lahir</label>
+                          <input type="date" class="form-control" name="tanggal_lahir">
+                      </div>
+                      <div class="form-group col-6">
+                          <label>tingkat pendidikan terkahir</label>
+                          <input type="text" class="form-control" name="tingkat_pendidikan_terakhir">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-6">
+                          <label>Jurusan pendidikan terakhir</label>
+                          <input type="text" class="form-control" name="jurusan_pendidikan_terakhir">
+                      </div>
+                      <div class="form-group col-6">
+                          <label>jabatan/tugas yang dilaksanakan</label>
+                          <input type="text" class="form-control" name="jabatan">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-6">
+                          <label>status tenaga non PNS dan NON PPPK</label>
+                          <input type="text" class="form-control" name="status_tenaga">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-6">
+                          <label>Unit kerja</label>
+                          <input type="text" class="form-control" name="unit_kerja">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-6">
+                          <label>keterangan</label>
+                          <input type="text" class="form-control" name="keterangan">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-12">
+                          <label>Password</label>
+                          <input type="password" class="form-control" name="password">
+                      </div>
                     </div>
                     @csrf
                     <div class="form-group">

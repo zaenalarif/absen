@@ -16,22 +16,49 @@ class UserTableSeeder extends Seeder
     {
         DB::table("users")->insert([
             [
-                'name'      => "zaenal",
-                'nip'       => "99",
-                'password'  => Hash::make("11111111"),
-                "role"      => "3",
+                'name'                          => "zaenal",
+                'no_thl'                        => "99",
+                'password'                      => Hash::make("11111111"),
+                "role"                          => "3",
+                "tmt_pengangkatan_pertama"      => '1979-02-11',
+                "tempat_lahir"                  => "JEPARA",
+                "tanggal_lahir"                 => "1979-02-11",
+                "tingkat_pendidikan_terakhir"   => "SLTA",
+                "jurusan_pendidikan_terakhir"   => "MANAGEMENT INFORMATIKA",
+                "jabatan"                       => "TENAGA KEBERSIHAN",
+                "status_tenaga"                 => "THL",
+                "unit_kerja"                    => "DLH",
+                "keterangan"                    => "."
             ],
             [
-                'name'      => "Excate",
-                'nip'       => "9890098012",
-                'password'  => Hash::make("11111111"),
-                "role"      => "2",
+                'name'                          => "Excate",
+                'no_thl'                        => "1979-02-11",
+                'password'                      => Hash::make("11111111"),
+                "role"                          => "2",
+                "tmt_pengangkatan_pertama"      => '1979-02-11',
+                "tempat_lahir"                  => "JEPARA",
+                "tanggal_lahir"                 => "1979-02-11",
+                "tingkat_pendidikan_terakhir"   => "SLTA",
+                "jurusan_pendidikan_terakhir"   => "MANAGEMENT INFORMATIKA",
+                "jabatan"                       => "TENAGA KEBERSIHAN",
+                "status_tenaga"                 => "THL",
+                "unit_kerja"                    => "DLH",
+                "keterangan"                    => "."
             ],
             [
-                'name'      => "Caex",
-                'nip'       => "837493874",
-                'password'  => Hash::make("11111111"),
-                "role"      => "1",
+                'name'                          => "Caex",
+                'no_thl'                        => "837493874",
+                'password'                      => Hash::make("11111111"),
+                "role"                          => "1",
+                "tmt_pengangkatan_pertama"      => '1979-02-11',
+                "tempat_lahir"                  => "JEPARA",
+                "tanggal_lahir"                 => "1979-02-11",
+                "tingkat_pendidikan_terakhir"   => "SLTA",
+                "jurusan_pendidikan_terakhir"   => "MANAGEMENT INFORMATIKA",
+                "jabatan"                       => "TENAGA KEBERSIHAN",
+                "status_tenaga"                 => "THL",
+                "unit_kerja"                    => "DLH",
+                "keterangan"                    => ""
             ]
         ]);
     }

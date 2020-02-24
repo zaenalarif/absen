@@ -22,8 +22,8 @@
             <img src="{{ asset("assets/img/stisla-fill.svg")}}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
             <form method="POST" action="{{ url("/login") }}" class="needs-validation" novalidate="">
               <div class="form-group">
-                <label for="nip">NIP</label>
-                <input id="nip" type="text" class="form-control" name="nip" tabindex="1" autocomplete="off" required>
+                <label for="no_thl">No. THL</label>
+                <input id="no_thl" type="text" class="form-control" name="no_thl" tabindex="1" autocomplete="off" required>
                 <div class="invalid-feedback">
                   NIP
                 </div>

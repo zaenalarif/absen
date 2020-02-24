@@ -26,13 +26,21 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-striped" id="table-1">
+                <table class="table table-striped hover" id="table-1">
                     <thead>
                       <tr>
                         <th class="text-center"> # </th>
+                        <th>No THL</th>
+                        <th>TMT pengangkatan kerja pertama</th>
                         <th>Nama</th>
-                        <th>NIP</th>
-                        <th>status</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Tingkat Pendidikan Terakhir</th>
+                        <th>Jurusan Pendidikan Terakhir</th>
+                        <th>Jabatan</th>
+                        <th>Status Tenaga</th>
+                        <th>unit Kerja</th>
+                        <th>Keterangan</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -40,12 +48,18 @@
                       @foreach ($users as $item)
                         <tr>
                           <td> 1 </td>
-                          <td> {{ $item->name }}</td>
-                          <td> {{ $item->nip }}</td>
-                          <td> 
-                              Pegawai
-                          </td>
-                          <td>
+                          <td> {{ $item->no_thl }} </td>
+                          <td> {{ $item->tmt_pengangkatan_pertama }} </td>
+                          <td> {{ $item->name }} </td>
+                          <td> {{ $item->tempat_lahir }} </td>
+                          <td> {{ $item->tanggal_lahir }} </td>
+                          <td> {{ $item->tingkat_pendidikan_terakhir }} </td>
+                          <td> {{ $item->jurusan_pendidikan_terakhir }} </td>
+                          <td> {{ $item->jabatan }} </td>
+                          <td> {{ $item->status_tenaga }} </td>
+                          <td> {{ $item->unit_kerja }} </td>
+                          <td> {{ $item->keterangan }} </td>
+                          <td >
                               <a href="{{ url("/pegawai/$item->id") }}" class="btn btn-secondary btn-sm">Detail</a>
                               <a href="{{ url("/pegawai/$item->id/edit") }}" class="btn btn-primary btn-sm">Edit</a>
                               <form action="{{ url("pegawai/$item->id") }}" method="post" class="d-inline">

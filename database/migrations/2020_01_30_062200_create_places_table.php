@@ -22,6 +22,10 @@ class CreatePlacesTable extends Migration
             $table->string('desa');
             $table->string('kecamatan');
             $table->tinyInteger('status')->default(0);
+            /**
+             * 0 kerja 
+             * 1 lembur
+             */
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

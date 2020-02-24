@@ -10,7 +10,7 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-            $users = User::where("role", 1)->get();
+        $users = User::where("role", 1)->get();
         return view("pegawai.index", compact("users"));
     }
 
@@ -23,10 +23,18 @@ class PegawaiController extends Controller
     {
         // validasi
         $user = User::create([
-            "name"          => $request->nama,
-            "nip"           => $request->nip,
-            "password"      => Hash::make($request->password),
-            "role"          => 1,
+            "no_thl"                        => $request->no_thl,
+            "tmt_pengangkatan_pertama"      => $request->tmt_pengangkatan_pertama,
+            "name"                          => $request->name,
+            "tempat_lahir"                  => $request->tempat_lahir,
+            "tanggal_lahir"                 => $request->tanggal_lahir,
+            "tingkat_pendidikan_terakhir"   => $request->tingkat_pendidikan_terakhir,
+            "jurusan_pendidikan_terakhir"   => $request->jurusan_pendidikan_terakhir,
+            "jabatan"                       => $request->jabatan,
+            "status_tenaga"                 => $request->status_tenaga,
+            "unit_kerja"                    => $request->unit_kerja,
+            "keterangan"                    => $request->keterangan,
+            "password"                      => Hash::make($request->password),
         ]);
 
         return redirect("/pegawai")->with("msg", "Akun Pegawai Berhasil dibuat");
@@ -50,14 +58,40 @@ class PegawaiController extends Controller
     {
         $user = User::findOrFail($id);
 
+        if(empty($user)) abort(404);
+
         // validasi
-
-        $user->update([
-            "name"          => $request->nama,
-            "nip"           => $request->nip,
-            "password"      => Hash::make($request->password),
-        ]);
-
+        if($request->password != null){
+            $user->update([
+                "no_thl"                        => $request->no_thl,
+                "tmt_pengangkatan_pertama"      => $request->tmt_pengangkatan_pertama,
+                "name"                          => $request->name,
+                "tempat_lahir"                  => $request->tempat_lahir,
+                "tanggal_lahir"                 => $request->tanggal_lahir,
+                "tingkat_pendidikan_terakhir"   => $request->tingkat_pendidikan_terakhir,
+                "jurusan_pendidikan_terakhir"   => $request->jurusan_pendidikan_terakhir,
+                "jabatan"                       => $request->jabatan,
+                "status_tenaga"                 => $request->status_tenaga,
+                "unit_kerja"                    => $request->unit_kerja,
+                "keterangan"                    => $request->keterangan,
+                "password"                      => Hash::make($request->password)
+            ]);
+        }else{
+            $user->update([
+                "no_thl"                        => $request->no_thl,
+                "tmt_pengangkatan_pertama"      => $request->tmt_pengangkatan_pertama,
+                "name"                          => $request->name,
+                "tempat_lahir"                  => $request->tempat_lahir,
+                "tanggal_lahir"                 => $request->tanggal_lahir,
+                "tingkat_pendidikan_terakhir"   => $request->tingkat_pendidikan_terakhir,
+                "jurusan_pendidikan_terakhir"   => $request->jurusan_pendidikan_terakhir,
+                "jabatan"                       => $request->jabatan,
+                "status_tenaga"                 => $request->status_tenaga,
+                "unit_kerja"                    => $request->unit_kerja,
+                "keterangan"                    => $request->keterangan
+            ]);
+        }
+        
         return redirect("/pegawai")->with("msg", $request->nama . " sudah terupdate");
     }
 

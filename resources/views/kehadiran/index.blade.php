@@ -89,7 +89,7 @@
                                 if (date_format($date, 'Y-m-d') == $start_date) {
                                   echo "<td>$kehadiran->time</td>";
                                 } else {
-                                  echo "<td>as</td>";
+                                  echo "<td>tidak hadir</td>";
                                 }
                               $start_date = date ("Y-m-d", strtotime("+1 days", strtotime($start_date)));
                             }

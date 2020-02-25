@@ -25,11 +25,10 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::put('/pegawai/{id}',         "PegawaiController@update");
     Route::delete('/pegawai/{id}',      "PegawaiController@destroy");
 
-    Route::get('/jadwal',            "JadwalController@index");
-    Route::get('/jadwal/{id}/edit',  "JadwalController@edit");
-    Route::put('/jadwal/{id}',       "JadwalController@update");
-    
-    Route::get('/kehadiran/hari-ini',   "KehadiranController@hariIni");
+    Route::get('/jadwal',               "JadwalController@index");
+    Route::get('/jadwal/{id}/edit',     "JadwalController@edit");
+    Route::put('/jadwal/{id}',          "JadwalController@update");
+        
     Route::get('/kehadiran',            "KehadiranController@index");
     
     Route::get('/pegawai/riwayat',   function () { return view('pegawai.riwayat'); });

@@ -55,26 +55,20 @@
 
               <li class="menu-header">Menu</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Pegawai</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i><span>Pegawai</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url("/pegawai") }}">Daftar Pegawai</a></li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kehadiran</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ url("/kehadiran/hari-ini") }}">Hari ini</a></li>
-                  <li><a class="nav-link" href="{{ url("/kehadiran") }}">Semua</a></li>
-                </ul>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clock"></i> <span>Jadwal</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clock"></i><span>Jadwal</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url("/jadwal") }}">Jadwal</a></li>
                 </ul>
               </li>
+
+              <li><a class="nav-link" href="{{ url("/kehadiran") }}"><i class="fas fa-columns"></i> <span> Kehadiran</span></a></li>
 
             </ul>
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
@@ -108,14 +102,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="{{ asset("assets/js/stisla.js")}}"></script>
-
-  <!-- JS Libraies -->
-  <script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
   <!-- Template JS File -->
   <script src="{{ asset("assets/js/scripts.js")}}"></script>

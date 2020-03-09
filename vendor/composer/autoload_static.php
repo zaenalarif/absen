@@ -565,6 +565,7 @@ class ComposerStaticInit7c08ba64f70a361ac3e9f660cf3b57d6
         'App\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
         'App\\Http\\Controllers\\Api\\PresensiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PresensiController.php',
         'App\\Http\\Controllers\\Api\\PresensiLemburController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PresensiLemburController.php',
+        'App\\Http\\Controllers\\Api\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ProfileController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

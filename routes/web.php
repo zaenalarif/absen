@@ -29,10 +29,16 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::get('/jadwal/{id}/edit',     "JadwalController@edit");
     Route::put('/jadwal/{id}',          "JadwalController@update");
         
-    Route::get('/kehadiran',            "KehadiranController@index");
+    Route::get('/kehadiran',                  "KehadiranController@index");
+    Route::get('/kehadiran/export',           "KehadiranController@export");
     
-    Route::get('/pegawai/riwayat',   function () { return view('pegawai.riwayat'); });
-    Route::get('/pegawai/show',   function () { return view('pegawai.show'); });
+    Route::get('/pegawai/riwayat',   function () {
+         return view('pegawai.riwayat'); 
+    });
+    Route::get('/pegawai/show',   function () {
+         return view('pegawai.show'); 
+    });
+    
 });
 
 // Route::get('/', function () { return view('welcome'); });

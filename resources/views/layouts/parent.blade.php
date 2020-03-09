@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title> @yield('title')</title>
 
+  <link rel="icon" type="image/ico" href="{{ asset("assets/logo.png") }}" />
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -51,11 +52,11 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
-              <li><a class="nav-link" href="{{ url("/") }}"><i class="far fa-square"></i> <span>Home</span></a></li>
+              <li><a class="nav-link" href="{{ url("/") }}"><i class="fas fa-home"></i> <span>Home</span></a></li>
 
               <li class="menu-header">Menu</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i><span>Pegawai</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i><span>Pegawai</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{ url("/pegawai") }}">Daftar Pegawai</a></li>
                 </ul>

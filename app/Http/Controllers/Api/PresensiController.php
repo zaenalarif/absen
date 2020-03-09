@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Auth;
 use App\Place;
@@ -13,6 +14,7 @@ class PresensiController extends Controller
 {
     public function store(Request $request)
     {
+        
         $jam_mulai  = Jadwal::where("nama_lain", date("l"))->pluck("jam_mulai")->first();
         $jam_selesai= Jadwal::where("nama_lain", date("l"))->pluck("jam_selesai")->first();
         
@@ -22,29 +24,51 @@ class PresensiController extends Controller
         $date1 = DateTime::createFromFormat('H:i:s', $current_time);
         $date2 = DateTime::createFromFormat('H:i:s', $sunrise);
         $date3 = DateTime::createFromFormat('H:i:s', $sunset);
-
+    
         if ($date1 > $date2 && $date1 < $date3)
         {
             /**
              * kode 0 untuk jam kerja asli
              * kode 1 untuk jam kerja lembur
              */
-            $place = Place::where("user_id", Auth::user()->id)->whereDay([
-                ["time", date("d")],
-                ["status", 0]
-            ])->first();
+            
+            $place = Place::where("user_id", Auth::user()->id)
+                            ->whereDay("time", date("d"))
+                            ->where("status", "=", 0)
+                            ->first();
+            
             if(!empty($place)) {
                 return response()->json([
                     "message"   => "Presensi Sudah di masukkan"
                 ]);
             }else{
+                /**
+                 * TODO 
+                 * validasi field
+                 */
+                $this->validate($request, [
+                    "image"     => "required",
+                    "latitude"  => "required",
+                    "longtitude"=> "required",
+                    "desa"      => "required",
+                    "kecamatan" => "required",
+                ]);
+
+                $file = $request->file("image");
+
+                $ext    = $file->getClientOriginalExtension();
+                $name   = Str::random(20) .time();
+
+                $file->storeAs(
+                    "presensi", $name . ".png"
+                );
+
                 $data = Place::create([
-                    "image"     => $request->image,
+                    "image"     => $name,
                     "latitude"  => $request->latitude,
                     "longtitude"=> $request->longtitude,
                     "time"      => date("Y-m-d H:i:s"),
-                    "desa"      => $request->desa,
-                    "kecamatan" => $request->kecamatan,
+                    "desa"      => $request->lokasi,
                     "status"    => 0,
                     "user_id"   => Auth::user()->id
                 ]);

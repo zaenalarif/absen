@@ -22,5 +22,7 @@ Route::post("/login", "Api\AuthController@login");
 Route::group(["middleware" => ["jwt.verify"]], function(){
     Route::post("/presensi", "Api\PresensiController@store");
     Route::post("/lembur",   "Api\PresensiLemburController@store");
+
+    Route::post("/profile",   "Api\ProfileController@show");
 });
 

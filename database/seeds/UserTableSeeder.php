@@ -47,7 +47,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'                          => "Caex",
-                'no_thl'                        => "837493874",
+                'no_thl'                        => "837",
                 'password'                      => Hash::make("11111111"),
                 "role"                          => "1",
                 "tmt_pengangkatan_pertama"      => '1979-02-11',

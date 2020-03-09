@@ -19,8 +19,7 @@ class CreatePlacesTable extends Migration
             $table->string('latitude');
             $table->string('longtitude');
             $table->dateTime('time');
-            $table->string('desa');
-            $table->string('kecamatan');
+            $table->text('lokasi');            
             $table->tinyInteger('status')->default(0);
             /**
              * 0 kerja 

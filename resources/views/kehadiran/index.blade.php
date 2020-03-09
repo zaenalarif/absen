@@ -40,7 +40,8 @@
                               <option value="sore">Sore</option>
                             </select>
                           </div>      
-                            <input type="submit" class="btn btn-primary px-5" value="cari">
+                            <input type="submit" name="action" class="btn btn-primary px-5" value="cari">
+                            <input type="submit" name="action" class="btn btn-info px-5" value="cetak">
                         </div>
                       </form>
                     </div>
@@ -73,39 +74,35 @@
                         @endphp   
                       </tr>
                     </thead>
+            
                     <tbody>
-                      
-                      @foreach ($user as $item)
-                      
+                      @foreach($user as $item)
                         <tr>
                           <td> {{ $loop->iteration }} </td>
-                          <td>{{ $item->name }}</td>    
+                          <td>{{ $item->name }}</td>   
+
+                          @php
+                              $start_date = $mulai;
+                              $end_date   = $selesai;                           
+                              $mulai_saya = $start_date;
+                          @endphp
+
                           @foreach ($item->kehadirans as $kehadiran)
-                            @php
-                            $start_date = $mulai;
-                            $end_date   = $selesai;
-                            while (strtotime($start_date) <= strtotime($end_date)) { 
-                                $date = date_create($kehadiran->time);  
-                                if (date_format($date, 'Y-m-d') == $start_date) {
-                                  echo "<td>$kehadiran->time</td>";
-                                } else {
-                                  echo "<td>tidak hadir</td>";
+                              @php
+                                while (strtotime($mulai_saya) <= strtotime($end_date)) {
+                                  
+                                  $ts    = strtotime($kehadiran->time);
+                                  $hasil = date('Y-m-d', $ts);
+                                  if ($hasil == $mulai_saya){
+                                    echo "<td>$kehadiran->time</td>";
+                                    $mulai_saya = date ("Y-m-d", strtotime("+1 days", strtotime($mulai_saya)));
+                                    break;
+                                  }
+                                    echo "<td></td>";
+                                    $mulai_saya = date ("Y-m-d", strtotime("+1 days", strtotime($mulai_saya)));
                                 }
-                              $start_date = date ("Y-m-d", strtotime("+1 days", strtotime($start_date)));
-                            }
-                          @endphp    
+                              @endphp   
                           @endforeach
-                          {{-- <td>Ujung batu</td>
-                          <td>Ujung batu</td>
-                          <td>{{ $item->kehadirans->count() }} </td>
-                          <td>1 </td>
-                          <td>
-                              <form action="{{ url("pegawai/$item->id") }}" method="post" class="d-inline">
-                                @csrf
-                                @method("DELETE")
-                                <button type="submit" class="btn btn-danger btn-sm"> Hapus </button>
-                              </form>
-                          </td> --}}
                         </tr>
                       @endforeach
                     </tbody>

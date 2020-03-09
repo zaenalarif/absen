@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('nip', 'password');
+        $credentials = $request->only('no_thl', 'password');
         
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
@@ -24,7 +24,14 @@ class AuthController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        $user = User::where("no_thl", $request->no_thl)->first();
+
+        return response()->json([
+            "name"      => $user->name,
+            "no_thl"    => $user->no_thl,
+            "token"     => $token
+            ]
+        );
     }
 
 

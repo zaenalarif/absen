@@ -28,25 +28,43 @@ class PresensiLemburController extends Controller
              * kode 0 untuk jam kerja asli
              * kode 1 untuk jam kerja lembur
              */
-            $place = Place::where("user_id", Auth::user()->id)->whereDay([
-                ["time", date("d")],
-                ["status", 1]
-            ])->first();
+            $place = Place::where("user_id", Auth::user()->id)
+                            ->whereDay("time", date("d"))
+                            ->where("status", "=", 1)
+                            ->first();
+            
             if(!empty($place)) {
                 return response()->json([
                     "message"   => "Presensi Sudah di masukkan"
                 ]);
             }else{
+                
+                $this->validate($request, [
+                    "image"     => "required",
+                    "latitude"  => "required",
+                    "longtitude"=> "required",
+                    "lokasi"    => "required",
+                ]);
+
+                $file = $request->file("image");
+
+                $ext    = $file->getClientOriginalExtension();
+                $name   = Str::random(20) .time();
+
+                $file->storeAs(
+                    "presensi", $name . ".png"
+                );
+
                 $data = Place::create([
-                    "image"     => $request->image,
+                    "image"     => $name,
                     "latitude"  => $request->latitude,
                     "longtitude"=> $request->longtitude,
                     "time"      => date("Y-m-d H:i:s"),
-                    "desa"      => $request->desa,
-                    "kecamatan" => $request->kecamatan,
-                    "status" => 1,
+                    "lokasi"    => $request->lokasi,
+                    "status"    => 1,
                     "user_id"   => Auth::user()->id
                 ]);
+    
     
                 return response()->json([
                     "message"   => "Berhasil mengisi Presensi hari ini",

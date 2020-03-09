@@ -42,16 +42,12 @@ class PresensiController extends Controller
                     "message"   => "Presensi Sudah di masukkan"
                 ]);
             }else{
-                /**
-                 * TODO 
-                 * validasi field
-                 */
+                
                 $this->validate($request, [
                     "image"     => "required",
                     "latitude"  => "required",
                     "longtitude"=> "required",
-                    "desa"      => "required",
-                    "kecamatan" => "required",
+                    "lokasi"    => "required",
                 ]);
 
                 $file = $request->file("image");
@@ -68,7 +64,7 @@ class PresensiController extends Controller
                     "latitude"  => $request->latitude,
                     "longtitude"=> $request->longtitude,
                     "time"      => date("Y-m-d H:i:s"),
-                    "desa"      => $request->lokasi,
+                    "lokasi"    => $request->lokasi,
                     "status"    => 0,
                     "user_id"   => Auth::user()->id
                 ]);

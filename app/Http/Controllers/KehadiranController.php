@@ -71,4 +71,12 @@ class KehadiranController extends Controller
         
     }
 
+    public function terkini()
+    {
+        $place = Place::with("user")->orderBy("id", "DESC")->get();
+
+        return view("")$place;
+
+    }
+
 }

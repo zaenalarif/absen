@@ -30,6 +30,7 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::put('/jadwal/{id}',          "JadwalController@update");
         
     Route::get('/kehadiran',                  "KehadiranController@index");
+    Route::get('/kehadiran/terkini',                  "KehadiranController@terkini");
     Route::get('/kehadiran/export',           "KehadiranController@export");
     
     Route::get('/pegawai/riwayat',   function () {

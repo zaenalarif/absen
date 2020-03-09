@@ -14,6 +14,13 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
+        /**
+         * key login
+         
+         NO THL, 
+         PASSWORD
+         
+         */
         $credentials = $request->only('no_thl', 'password');
         
         try {

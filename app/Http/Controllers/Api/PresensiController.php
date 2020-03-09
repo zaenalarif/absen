@@ -14,7 +14,15 @@ class PresensiController extends Controller
 {
     public function store(Request $request)
     {
-        
+     
+        /**
+         *       KEY KEY
+                    "image"     => $name,
+                    "latitude"  => $request->latitude,
+                    "longtitude"=> $request->longtitude,
+                    "lokasi"    => $request->lokasi,
+                    "user_id"   => Auth::user()->id
+         */
         $jam_mulai  = Jadwal::where("nama_lain", date("l"))->pluck("jam_mulai")->first();
         $jam_selesai= Jadwal::where("nama_lain", date("l"))->pluck("jam_selesai")->first();
         

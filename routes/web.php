@@ -29,9 +29,12 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::get('/jadwal/{id}/edit',     "JadwalController@edit");
     Route::put('/jadwal/{id}',          "JadwalController@update");
         
-    Route::get('/kehadiran',                  "KehadiranController@index");
-    Route::get('/kehadiran/terkini',                  "KehadiranController@terkini");
-    Route::get('/kehadiran/export',           "KehadiranController@export");
+    Route::get('/kehadiran',                       "KehadiranController@index");
+    Route::get('/kehadiran/export',                "KehadiranController@export");
+    Route::get('/kehadiran/terkini',               "KehadiranController@terkini");
+    Route::get('/kehadiran/terkini/json',          "KehadiranController@terkini_json");
+    Route::get('/kehadiran/terkini/{id}',          "KehadiranController@terkini_id");
+    
     
     Route::get('/pegawai/riwayat',   function () {
          return view('pegawai.riwayat'); 

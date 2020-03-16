@@ -23,6 +23,8 @@ Route::group(["middleware" => ["jwt.verify"]], function(){
     Route::post("/presensi", "Api\PresensiController@store");
     Route::post("/lembur",   "Api\PresensiLemburController@store");
 
-    Route::post("/profile",   "Api\ProfileController@show");
+    Route::get("/profile",                  "Api\ProfileController@show");
+    Route::get("/lokasi_terkini",           "Api\PlaceController@show");
+    Route::get("/lokasi_terkini/{id}",      "Api\PlaceController@show_image");
 });
 

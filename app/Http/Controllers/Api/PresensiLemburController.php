@@ -52,7 +52,7 @@ class PresensiLemburController extends Controller
                 $name   = Str::random(20) .time();
 
                 $file->storeAs(
-                    "presensi", $name . ".png"
+                    "public/presensi", $name . ".png"
                 );
 
                 $data = Place::create([
@@ -67,6 +67,7 @@ class PresensiLemburController extends Controller
     
     
                 return response()->json([
+                    "value"     => 1,
                     "message"   => "Berhasil mengisi Presensi hari ini",
                     "data"      => $data
                 ]);
@@ -74,6 +75,7 @@ class PresensiLemburController extends Controller
 
         }else{
             return response()->json([
+                "value"     => 0,
                 "message" => "jam kerja sudah selesai, jam kerja antara $sunrise sampai $sunset "
             ]);
         }

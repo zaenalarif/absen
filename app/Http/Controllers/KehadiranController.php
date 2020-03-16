@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Request;
 use App\Place;
 use App\User;
 use PDF;
-
 use App\Exports\KehadiranExport;
 use Maatwebsite\Excel\Facades\Excel;
+use DataTables;
+
 
 class KehadiranController extends Controller
 {
@@ -73,10 +75,36 @@ class KehadiranController extends Controller
 
     public function terkini()
     {
-        $place = Place::with("user")->orderBy("id", "DESC")->get();
+        return view("kehadiran.terkini");
+    }
 
-        return view("")$place;
+    public function terkini_json()
+    {
+        $places = Place::with("user")->orderBy("id", "DESC")->get();
 
+        return DataTables::of($places)
+            ->addColumn("action", function($row){
+                return "<a href='/kehadiran/terkini/$row->id' class='btn btn-info'>Lihat</a>";
+            })->addColumn("gambar", function($image){
+                $imageUrl = URL::to('storage/presensi/') . "/" . $image->image;
+                return '<img src="' . $imageUrl .'" style="width:100% !important" />';
+            })->rawColumns(["gambar", "action"])->make(true);
+    }
+
+    /**
+     * in view belum
+     */
+    public function terkini_id($id)
+    {
+        $kehadiran = Place::with("user")->where("id", $id)->first();
+
+        if(empty($kehadiran)) abort(404);
+
+        $previous = Place::where("id", "<", $kehadiran->id)->max("id");
+        
+        $next     = Place::where("id", ">", $kehadiran->id)->min("id");
+
+        return view("kehadiran.show", compact("kehadiran", "previous", "next"));
     }
 
 }

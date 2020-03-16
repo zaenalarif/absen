@@ -17,6 +17,17 @@
 
     <div class="section-body">
 
+      @if (session("msg"))
+      <div class="alert alert-success alert-dismissible show fade">
+        <div class="alert-body">
+          <button class="close" data-dismiss="alert">
+            <span>×</span>
+          </button>
+          {{ session("msg") }}
+        </div>
+      </div>
+      @endif
+
       <div class="row">
         <div class="col-12">
           <div class="card">

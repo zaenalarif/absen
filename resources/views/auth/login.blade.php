@@ -20,7 +20,7 @@
         <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
           <div class="p-4 m-3">
             <img src="{{ asset("assets/img/stisla-fill.svg")}}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
-            <form method="POST" action="{{ url("/login") }}" class="needs-validation" novalidate="">
+            <form method="POST" action="{{ url("/login") }}" novalidate="">
               <div class="form-group">
                 <label for="no_thl">No. THL</label>
                 <input id="no_thl" type="text" class="form-control" name="no_thl" tabindex="1" autocomplete="off" required>
@@ -63,7 +63,7 @@
             <div class="text-light p-5 pb-2">
               <div class="mb-5 pb-3">
                 <h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-                <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+                <h5 class="font-weight-normal text-muted-transparent">Jepara, Jawa Tengah</h5>
               </div>
               Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
             </div>

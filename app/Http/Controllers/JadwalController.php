@@ -33,4 +33,6 @@ class JadwalController extends Controller
         
         return redirect("/jadwal")->with("msg", "jadwal $jadwal->nama_hari telah di edit");
     }
+
+    
 }

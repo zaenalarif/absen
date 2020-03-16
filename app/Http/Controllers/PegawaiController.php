@@ -42,9 +42,9 @@ class PegawaiController extends Controller
 
     public function show($id){
 
-        $user = User::findOrFail($id);
+        $pegawai = User::where("id", $id)->where("role", 1)->first();
 
-        return view("pegawai.show", compact("user"));
+        return view("pegawai.show", compact("pegawai"));
     }
 
     public function edit($id)
